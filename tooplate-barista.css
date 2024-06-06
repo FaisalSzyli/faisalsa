@@ -837,7 +837,7 @@ strong {
   CONTACT               
 -----------------------------------------*/
 .contact-section {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(11, 7, 255, 0.486)), url('../images/jaring2.jpg');
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(11, 7, 255, 0.486)), url('jaring2.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
