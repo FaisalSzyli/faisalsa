@@ -688,7 +688,7 @@ strong {
   OUR MENU              
 -----------------------------------------*/
 .menu-section {
-  background-image: url('../jaring1.jpg');
+  background-image: url('jaring1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -788,7 +788,7 @@ strong {
   BOOKING SECTION              
 -----------------------------------------*/
 .booking-section {
-  background-image: url('../jaring3.jpg');
+  background-image: url('jaring3.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
