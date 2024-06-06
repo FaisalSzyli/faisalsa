@@ -11,9 +11,9 @@
     $(function() {
       $('.hero-slides').vegas({
           slides: [
-              { src: 'images/jaring4.jpg' },
-              { src: 'images/jaring5.jpg' },
-              { src: 'images/jaring6.jpg' }
+              { src: 'jaring4.jpg' },
+              { src: 'jaring5.jpg' },
+              { src: 'jaring6.jpg' }
           ],
           timer: false,
           animation: 'kenburns',
