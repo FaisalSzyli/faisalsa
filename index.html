@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelompok 1</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- font google -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <canvas id="backgroundCanvas"></canvas>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="#">Fai<span>sal</span>Sa</a>
+            </div>
+            <div class="navbar-menu">
+                <a href="#">Home</a>
+                <a href="#about">About</a>
+            </div>
+            <div class="navbar-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    <!-- Rest of your existing code -->
+    <div class="contenn">
+        <div class="main-content">
+            <h2>Welcome <br><span>To  Our Website</span> </h2>
+            <article>
+                <p>Explore information about our web design and programming project.</p>
+                <a href="#isee" class="btn">See Now!</a>
+            </article>
+        </div>
+    </div>
+
+    <div class="wrapper" id="isee">
+        <div class="container">
+            <input type="radio" name="slide" id="c1" checked>
+            <label for="c1" class="card satu" id="see">
+                <div class="row">
+                    <div class="description">
+                        <h4>DPW</h4>
+                        <p><a href="#">Learn More</a></p>
+                    </div>
+                </div>
+            </label>
+            <input type="radio" name="slide" id="c2">
+            <label for="c2" class="card">
+                <div class="row">
+                    <div class="description dark">
+                        <h4>OSI Layer</h4>
+                        <p><a href="osi.html">Learn More</a></p>
+                    </div>
+                </div>
+            </label>
+            <input type="radio" name="slide" id="c3">
+            <label for="c3" class="card">
+                <div class="row">
+                    <div class="description">
+                        <h4>Fiber Optic</h4>
+                        <p><a href="fiberoptik.html">Learn More</a></p>
+                    </div>
+                </div>
+            </label>
+            <input type="radio" name="slide" id="c4">
+            <label for="c4" class="card">
+                <div class="row">
+                    <div class="description dark">
+                        <h4>V-LAN</h4>
+                        <p><a href="vlan.html">Learn More</a></p>
+                    </div>
+                </div>
+            </label>
+        </div>
+        <br> <br> <br>
+        <section id="about">
+            <div class="raw">
+                <h1>Our Team</h1>
+            </div>
+            <div class="raw">
+                <div class="column">
+                    <div class="kartu">
+                        <div class="img-container">
+                            <img src="faisal.jpg">
+                        </div>
+                        <h3>Faisal Sazili</h3>
+                        <p>Anggota Kelompok</p>
+                        <div class="social">
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="kartu">
+                        <div class="img-container">
+                            <img src="salsa.webp">
+                        </div>
+                        <h3>Salsabilla Febyanti</h3>
+                        <p>Anggota Kelompok</p>
+                        <div class="social">
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navbarMenu = document.querySelector('.navbar-menu');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('is-active');
+            navbarMenu.classList.toggle('active');
+        });
+
+        const canvas = document.getElementById('backgroundCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const lines = [];
+const lineCount = 100;
+
+class Line {
+    constructor(x, y, length, speed) {
+        this.x = x;
+        this.y = y;
+        this.length = length;
+        this.speed = speed;
+    }
+    
+    draw() {
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x + this.length, this.y + this.length);
+        ctx.strokeStyle = 'dark';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+    }
+
+    update() {
+        this.x += this.speed;
+        this.y += this.speed;
+        if (this.x > canvas.width || this.y > canvas.height) {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+        }
+    }
+}
+
+for (let i = 0; i < lineCount; i++) {
+    const x = Math.random() * canvas.width;
+    const y = Math.random() * canvas.height;
+    const length = Math.random() * 100;
+    const speed = Math.random() * 2 + 0.5;
+    lines.push(new Line(x, y, length, speed));
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (const line of lines) {
+        line.draw();
+        line.update();
+    }
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+
+
+
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
