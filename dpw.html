@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPW</title>
+    <link rel="stylesheet" href="dpw.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>  
+    <header>
+        <a href="#" class="brand">FAISALSA</a>
+        <div class="menu-btn"></div>
+        <div class="navigation">
+            <div class="navigation-items">
+                <a href="#">Home</a>
+                <a href="https://faisalszyli.github.io/faisalsa/">Main Page</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="home">
+        <video class="video-slide active" src="video1.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="video2.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="video3.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="video4.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="video1.mp4" autoplay muted loop></video>
+        <div class="content active">
+            <h1>Design Web <br><span>and Programming</span></h1>
+            <p>Desain Pemrograman Web (DPW) adalah proses menciptakan dan membangun situs web yang mencakup desain visual, pengembangan konten, dan pemrograman.</p>
+        </div>
+        <div class="content">
+            <h1>HTML <br><span>Foundation of the Web</span></h1>
+            <p>HTML adalah bahasa markup untuk membuat struktur dasar halaman web, menggunakan elemen seperti header, paragraf, dan gambar.</p>
+        </div>
+        <div class="content">
+            <h1>CSS <br><span>Enhancing Web Appearance</span></h1>
+            <p>CSS digunakan untuk mengatur tampilan halaman web, mengontrol warna, font, tata letak, dan elemen visual lainnya.</p>
+        </div>
+        <div class="content">
+            <h1>JavaScript<br><span>Adding Interactivity</span></h1>
+            <p>JavaScript memungkinkan penambahan elemen interaktif dan dinamis pada halaman web, seperti animasi dan validasi form.</p>
+        </div>
+        <div class="content">
+            <h1>Framework<br><span>Tools for Efficient Development</span></h1>
+            <p>Framework seperti Bootstrap dan React mempercepat pengembangan web dengan menyediakan komponen siap pakai dan pustaka untuk fitur umum.</p>
+        </div>
+
+        <div class="media-icons">
+            <a href="https://faisalszyli.github.io/faisalsa/"><i class="fa-solid fa-house"></i></a>
+            <a href="https://github.com/FaisalSzyli/faisalsa"><i class="fa-brands fa-github"></i></a>
+        </div>
+        <div class="slider-navigation">
+            <div class="nav-btn active"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            // ======NAVIGASI=====
+            const menuBtn = document.querySelector(".menu-btn");
+            const navigation = document.querySelector(".navigation");
+
+            menuBtn.addEventListener("click", () => {
+                menuBtn.classList.toggle("active");
+                navigation.classList.toggle("active");
+            });
+
+            // ======SLIDER=====
+            const btns = document.querySelectorAll('.nav-btn');
+            const slides = document.querySelectorAll('.video-slide');
+            const contents = document.querySelectorAll('.content');
+
+            // Fungsi untuk navigasi slider
+            var sliderNav = function(manual) {
+                btns.forEach((btn) => {
+                    btn.classList.remove("active");
+                });
+                slides.forEach((slide) => {
+                    slide.classList.remove("active");
+                });
+                contents.forEach((content) => {
+                    content.classList.remove("active");
+                });
+
+                btns[manual].classList.add('active');
+                slides[manual].classList.add('active');
+                contents[manual].classList.add('active');
+            };
+
+            // Event listener untuk setiap tombol navigasi slider
+            btns.forEach((btn, i) => {
+                btn.addEventListener('click', () => {
+                    sliderNav(i);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
